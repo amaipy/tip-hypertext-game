@@ -1,0 +1,19 @@
+::StoryData
+{
+    "ifid": "A01CE8D0-76D1-40BB-9A05-933BE6AC840B",
+    "format": "Harlowe",
+    "format-version": "3.1.0",
+    "start": "Start"
+}
+
+::StoryTitle
+My test story!
+
+:: Start
+This is the first passage in a Twine game!
+
+[[This is a link|Next Passage]]
+
+
+:: Next Passage
+The player just clicked a link to get here!
