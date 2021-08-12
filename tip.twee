@@ -1,19 +1,337 @@
-::StoryData
+:: StoryTitle
+The Interactive Project
+
+
+:: StoryData
 {
-    "ifid": "A01CE8D0-76D1-40BB-9A05-933BE6AC840B",
-    "format": "Harlowe",
-    "format-version": "3.1.0",
-    "start": "Start"
+	"ifid": "A8820F66-482C-4C2E-8B91-3E1FB8BCB926",
+	"format": "SugarCube",
+	"format-version": "2.34.1",
+	"start": "Begin",
+	"zoom": 1.0
 }
 
-::StoryTitle
-My test story!
 
-:: Start
-This is the first passage in a Twine game!
+:: Story Stylesheet [stylesheet]
+body {
+  color: white;
+  background-color: black;
+}
 
-[[This is a link|Next Passage]]
+#menu-item-saves {
+	display: none;
+}
+.wrong {
+	background-color: #cc2c2c !important;
+	border: 1px solid #b35c5c !important; 
+}
+
+.right {
+	background-color: #4caf50 !important;
+	border: 1px solid #75b178 !important;
+}
+
+:: Begin {"position":"673.6666666666666,275.3333333333333","size":"100,100"}
+
+<img src="img/image8.png" style="max-width: 100%; width: 300px;" onclick="$.wiki('<<goto [[Click Me]]>>')">
+
+:: Click Me {"position":"685.3333333333334,529.6666666666667","size":"100,100"}
+<<set $door to false>>
+You are walking to class in the Education building. You’re very late, you’re in a massive hurry. Suddenly, your foot catches something and you tumble to the ground. You’re annoyed and look down. It’s a wooden box lying aimlessly in the centre of the hallway.
+
+Carved on the top it reads <<linkappend "“DO NOT OPEN”." t8n>> <img src="img/image5.png" style="max-width: 100%; width: 300px;">\
+Open the box?
+
+[[Yes|Open the box]]&emsp;&emsp;[[No]]
+<</linkappend>>
 
 
-:: Next Passage
-The player just clicked a link to get here!
+:: Open the box {"position":"810.6666666666666,796","size":"100,100"}
+You don’t like to be told what to do so you so you cradle the box in your arms and <<linkappend "slowly lift the lid." t8n>> \
+<img src="img/image1.png" style="max-width: 100%; width: 300px;">\
+Inside sits a single, folded piece of paper. You pull out the paper and [[unfold it.|Unfold the paper]]
+<</linkappend>>
+
+:: No {"position":"585.6666666666666,793.3333333333334","size":"100,100"}
+You keep walking to the Education building. \
+<img src="img/image9.png" style="max-width: 100%; width: 300px;">\
+On the front door, there is a paper attached to it. Intrigued, you decide to take a closer [[look|Unfold the paper]].
+<<set $door to true>>
+
+:: Unfold the paper {"position":"789.6666666666666,965.3333333333334","size":"100,100"}
+You see a collection of lovely letters painted next to each other. You’re sure they form words, but you don’t see their meaning right away, only how beautifully the letters curve and dance around one another like golden echoes of light.\
+<img src="img/image6.png" style="max-width: 100%; width: 300px;">\
+You squint and <<linkappend "begin to read:" t8n>>
+<blockquote>3-2-1 Let’s have some fun!
+If you dare to follow me.
+There is a treasure that longs to be claimed,
+In the darkest depths, spaces unseen.
+Will it be you? A winner named?
+Or do you cower in the face or adventure?
+If you are the one who will see the end,
+meet me in the library of Cameron.</blockquote>
+<<if $door eq true>>You pause for a moment and starts to [[think.|You fold the paper again]]
+<<else>>[[You fold the paper again]]<</if>>
+<</linkappend>>
+
+:: You fold the paper again {"position":"774,1333.3333333333333","size":"100,100"}
+What the hell, you think. Is this a freshman campus tour gimmick? You start to<<if $door eq false>> put the box down and<</if>> make your way to class, <<linkappend "but something stops you." t8n>>
+
+This message intrigues you. Plus you’re not one to back down from a challenge.
+
+You figure you’re already socially unacceptably late for class<<if $door eq true>>, so you decide to [[make your way to Cameron]]
+<<else>>. So you stuff the paper in your backpack and [[make your way to Cameron]]<</if>>
+<</linkappend>>
+
+:: make your way to Cameron {"position":"783.9999999999999,1636.6666666666667","size":"100,100"}
+The library is dead – no one in sight except for the librarians behind the desk. They make eye contact with you and they stop in their tracks and stare. You’re confused and a little creeped out.
+
+[[“Hi” you say.]]
+
+
+:: “Hi” you say. {"position":"779,1785","size":"100,100"}
+The librarian, silent, hands you a piece of paper.
+
+“Um, what is this for?” You start to ask before all four of the librarians violently shush you.
+
+“It’s a late notice. You need to return your book.”
+
+<<linkappend "You open the piece of paper." t8n>>
+	<<set $doubt to false>><<set $pride to false>><<set $solitude to false>>\
+	<img src="img/image7.png" style="max-width: 100%; width: 300px;">
+	It reads:
+
+	&emsp;&emsp;I am at the beginning of all things. I am at the end of eternity. There is but one path from my beginning to my end. My whole ebodies indifference.
+
+	You have four books in your backpack. <<linkappend "Which do you return to the librarian?" t8n>> 
+	<img src="img/image2.png" style="max-width: 100%; width: 300px;">\
+	[[Apathy and Other Small Victories by Paul Neilan]]
+	[[Doubt: A History by Jennifer Michael Hecht]]
+	[[The Pride and the Anguish by Douglas Reeman]]
+	[[Solitude: In Pursuit of a Singular Life in a Crowded World by Michael Harris]]
+	<</linkappend>>
+<</linkappend>>
+
+
+:: Apathy and Other Small Victories by Paul Neilan {"position":"548.6666666666666,2289.6666666666674","size":"100,100"}
+The librarian smiles.
+“Your next destination is Pembina Hall, the third room on the left” she says.
+
+Even though you find this situation very strange, you follow her [[suggestion|Pembina Hall]].
+
+
+:: Doubt: A History by Jennifer Michael Hecht {"position":"756.3333333333333,2289.666666666667","size":"100,100"}
+The librarian says “Are you sure of it? Don’t you have anything else to [[return?|Try Again Book]]” 
+<<set $doubt to true>>
+
+
+:: Solitude: In Pursuit of a Singular Life in a Crowded World by Michael Harris {"position":"1125.6666666666667,2295.0000000000005","size":"100,100"}
+The librarian stares at you and asks for your silence, even though the library is empty. Maybe you should try returning [[another one.|Try Again Book]]
+<<set $solitude to true>>
+
+
+:: The Pride and the Anguish by Douglas Reeman {"position":"954,2302.666666666667","size":"100,100"}
+The librarian tells you “This one is really good! But as I can see, you did not complete it since you took it a few hours ago. You should try to give it [[one more chance.|Try Again Book]]”
+<<set $pride to true>>
+
+
+:: Pembina Hall {"position":"560.0000000000001,2510.8333333333335","size":"100,100"}
+At Pembina Hall, you count three doors down the left hall and <<linkappend "burst inside." t8n>>
+
+It’s a classroom full of students. The professor is in the middle of a lecture. The room falls silent and all the heads turn to face you. You turn red and apologize as you [[back away.|Classroom riddle]]
+
+<</linkappend>>
+
+
+:: Classroom riddle {"position":"548.3333333333333,2692.5000000000014","size":"100,100"}
+<img src="img/image3.png" style="max-width: 100%; width: 300px;">
+“We’ve been waiting for you” the chorus of students reply.
+
+“Oh God.” You croak.
+
+The professor begins feverishing scribbling on the white board. Then she backs away to <<linkappend "show the words:" t8n>>
+
+<blockquote>I can travel from there to here by disappearing, and here to there by reappearing.</blockquote>
+<<set $ghost to false>><<set $ship to false>><<set $dating to false>>\
+The professor says “Can you give me the answer?” 
+You hesitate, but take the marker from her hand and trace this onto the board:
+
+[[a ghost|Ghost]]
+[[a ship|Ship]]
+[[my dating life|Dating life]]
+[[the letter T|the letter "T"]]<</linkappend>>
+
+
+:: Ghost {"position":"600,2922.500000000001","size":"100,100"}
+As soon as you finish drawing, the class door shuts on its own, making a big noise. 
+The teacher says: “It looks like we have company! But it is still not the correct answer, so [[try again|Try again]].”
+
+<<set $ghost to true>>
+
+:: Try again {"position":"975.0000000000001,2574.1666666666674","size":"100,100"}
+Remember the riddle:
+<blockquote>I can travel from there to here by disappearing, and here to there by reappearing.</blockquote>
+Now, you decide to trace this onto the board:
+
+<<if $ghost eq false>>[[a ghost|Ghost]]<</if>>
+<<if $ship eq false>>[[a ship|Ship]]<</if>>
+<<if $dating eq false>>[[my dating life|Dating life]]<</if>>
+[[the letter T|the letter "T"]]
+
+
+:: Ship {"position":"741.6666666666666,2929.166666666667","size":"100,100"}
+After you finish, a student gets up and decides to draw some tiny fishes on the whiteboard surrounding your ship. 
+The professor giggles and tells you to [[try again|Try again]].
+
+<<set $ship to true>>
+
+
+:: Dating life {"position":"891.6666666666665,2920.8333333333335","size":"100,100"}
+Despite your embarrassment, you quickly write onto the board “My dating life”. 
+The classroom starts to laugh, and the professor brushes that off with a displeased expression on her face, asking you to [[try again|Try again]].
+
+<<set $dating to true>>
+
+
+:: the letter "T" {"position":"1025,2909.1666666666674","size":"100,100"}
+<img src="img/image4.png" style="max-width: 100%; width: 300px;">\
+The classroom starts to clap. 
+The professor congratulates you: “Finally! You got it right. Why don’t you go explore more about [[Old Arts|Old arts]]?”
+
+
+:: Old arts {"position":"1026.6666666666665,3080.8333333333335","size":"100,100"}
+Since you are very eager to solve this mystery, you make your way to the Old Arts building.
+
+The door is locked with a massive hunk of brass hardware. It’s shiny with numbers encircling a knob. You yank on [[the door.|Door Arts building]]
+
+
+:: Door Arts building {"position":"1033.3333333333335,3252.5","size":"100,100"}
+It doesn’t budge, and you don’t know what to do.
+Suddenly you hear a faint voice on the <<linkappend "other end." t8n>>
+
+“Enter the 3 numbers at my core, I’ve told you before.”
+
+You try to remember any past clues. 
+You enter the following combination on the padlock:
+
+<div id="pad-1">\
+<button id = "b1" onclick="document.getElementById('b1').className = 'wrong'">1</button>\
+<button id = "b2" onclick="document.getElementById('b2').className = 'wrong'">2</button>\
+<button id = "b3" onclick="document.getElementById('b3').className = 'right'; document.getElementById('pad-2').style = 'display:block;'">3</button>\
+</div>
+<div id="pad-2" style="display:none;">\
+<button id = "b4" onclick="document.getElementById('b4').className = 'wrong'">1</button>\
+<button id = "b5" onclick="document.getElementById('b5').className = 'right'; document.getElementById('pad-3').style = 'display:block;'">2</button>\ 
+<button id = "b6" onclick="document.getElementById('b6').className = 'wrong'">3</button>\
+</div>
+<div id="pad-3" style="display:none;">\
+<button id = "b7" onclick="document.getElementById('b7').className = 'right'; $.wiki('<<goto [[Foward]]>>')">1</button>\
+<button id = "b8" onclick="document.getElementById('b8').className = 'wrong'">2</button>\
+<button id = "b9" onclick="document.getElementById('b9').className = 'wrong'">3</button>\
+</div>\
+<</linkappend>>
+
+
+:: Foward {"position":"1029.9999999999998,3399.166666666667","size":"100,100"}
+It unlocks, you open the door to find no one on the other end. You’re perplexed. The doors close behind you. From the outside now, <<linkappend "the same voice returns." t8n>>
+
+“Timm’s, Timm’s!” It yells.
+
+You push the doors open and find you’re still standing alone. You decide to take the advice from the voice and make your way to [[Timm’s|Timms]].
+<</linkappend>>
+
+
+:: Try Again Book {"position":"1036.666666666667,1985.833333333333","size":"100,100"}
+The paper from the librarian reads:
+<blockquote>I am at the beginning of all things. I am at the end of eternity. There is but one path from my beginning to my end. My whole embodies indifference.</blockquote>
+This time, you decide to return the following book:
+<img src="img/image2.png" style="max-width: 100%; width: 300px;">\
+[[Apathy and Other Small Victories by Paul Neilan]]
+<<if $doubt eq false>>[[Doubt: A History by Jennifer Michael Hecht]]<</if>>
+<<if $pride eq false>>[[The Pride and the Anguish by Douglas Reeman]]<</if>>
+<<if $solitude eq false>>[[Solitude: In Pursuit of a Singular Life in a Crowded World by Michael Harris]]<</if>>\
+
+
+:: Timms {"position":"1023.3333333333331,3565.833333333334","size":"100,100"}
+You walk through the front doors of the Timm’s building and it is chaos. Dozens of students in half assembled historical costumes rush all around you. Some are reciting lines from a notebook, others are smearing makeup on their face. A tall man with a sense of authority <<linkappend "spots you from across the room." t8n>>
+
+“Finally!” he shouts, “We were about to call in the understudy!”
+
+He yanks you through a labyrinth of hallways and doors until your standing together in a dark place. Everything is painted black. All you hear is a faint echo [[beyond a shade of curtains|Stage]].
+
+<</linkappend>>
+
+
+:: Stage {"position":"1030,3719.166666666667","size":"100,100"}
+“Break a leg” He snaps and pushes you through the drapes. For a good minute, <<linkappend "all you see is light." t8n>>
+
+As your vison begins to return you are aware that your standing on the Timm’s stage in front of a full audience. Across from you is a guy dressed like [[Napoleon]].
+
+<</linkappend>>
+
+
+:: Napoleon {"position":"1035,3875.8333333333335","size":"100,100"}
+<<set $thief to false>><<set $tobe to false>><<set $line to false>>\
+He looks at you, desperate. You stare <<linkappend "blankly." t8n>>
+
+“I’m not sure you heard me,” he begins, <<linkappend "“Say my name and I disappear!”" t8n>>
+
+You turn to the crowd embarrassed and muster up all your gravitas and recite:
+
+[[Thief!|Thief]]
+[[Silence!|Silence]]
+[[To be or not to be!|To Be]] 
+[[Line please?!|Line]]
+
+<</linkappend>>
+
+<</linkappend>>
+
+
+:: Thief {"position":"1056.6666666666663,4185.833333333334","size":"100,100"}
+<<set $thief to true>>\
+The audience uncomprehendingly glances at each other, and the guy dressed as Napoleon encourages you to [[try again.|Try Again Theather]]
+
+
+:: To Be {"position":"1246.6666666666667,4184.166666666667","size":"100,100"}
+<<set $tobe to true>>\
+The guy dressed as Napoleon doesn't understand why you're quoting this. Due to his reaction, you decide to [[try again.|Try Again Theather]]
+
+
+:: Line {"position":"1595.0000000000002,4202.5","size":"100,100"}
+<<set $line to true>>\
+The guy dressed as Napoleon looks at you speechless and nods his head. In order not to make the situation worse, you decide to [[try again.|Try Again Theather]]
+
+
+:: Try Again Theather {"position":"1578.3333333333335,3842.4999999999995","size":"100,100"}
+Remember what the guy said: 
+<blockquote>“Say my name and I disappear!”</blockquote>
+This time, you recite:
+<<if $thief eq false>>[[Thief!|Thief]]<</if>>
+[[Silence!|Silence]]
+<<if $tobe eq false>>[[To be or not to be!|To Be]]<</if>>
+<<if $line eq false>>[[Line please?!|Line]]<</if>>
+
+
+:: Silence {"position":"1421.6666666666667,4192.500000000001","size":"100,100"}
+The audience applauds. They rise to their feet. “Encore, encore!” They <<linkappend "chant." t8n>>
+
+You begin spewing an incorrect and cringey version of a Shakespeare soliloquy when your stage partner <<linkappend "stops you." t8n>>
+
+“Not here – go to [[Convocation Hall]]!”
+
+<</linkappend>>
+
+<</linkappend>>
+
+
+:: Convocation Hall {"position":"1421.6666666666667,4450.833333333333","size":"100,100"}
+Excited, you feel that you are very close to solving this mystery. 
+
+You make your way to Convocation Hall and fall into a line of students in caps and gowns. You tumble out on stage when you hear your name called over the microphone. Someone shakes your hand and offers you a <<linkappend "piece of paper." t8n>>
+
+Congratulations on finishing this journey. You earned the treasure – your Bachelor’s degree!
+
+<</linkappend>>
+
+
