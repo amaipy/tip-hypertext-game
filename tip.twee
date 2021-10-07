@@ -32,6 +32,9 @@ body {
 	border: 1px solid #75b178 !important;
 }
 
+:: StoryMenu
+[[TIP'S Website | 'https://sites.google.com/ualberta.ca/tips-interactive-project/home']]
+
 :: Begin {"position":"673.6666666666666,275.3333333333333","size":"100,100"}
 
 <img src="img/image8.png" style="max-width: 100%; width: 400px;" onclick="$.wiki('<<goto [[Click Me]]>>')">
